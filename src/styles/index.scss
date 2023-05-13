@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "reset";
+// @import "content";
+//variable
+:root {
+  --height-header: 68px;
+  --margin-top: 30px;
+  --padding-viewModal: 16px;
+  --padding-dashboard: 20px;
+}
+@layer base {
+  body {
+    @import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap");
+    line-height: 1.5;
+    // -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family: "Epilogue", sans-serif;
+    font-size: 16px;
+    background-color: #091929;
+    color: #b2bac2;
+    // font-family: "Epilogue", sans-serif;
+    // font-family: "Source Sans Pro", sans-serif;
+    font-family: "Epilogue", sans-serif;
+    font-family: "Roboto", sans-serif;
+    overflow-x: hidden;
+  }
+}
+@layer components {
+  .movie-list .swiper-slide {
+    width: 150px;
+  }
+  .movie-list .swiper:not(.swiper-noCSS) {
+    margin: 20px 0px;
+    padding: 0px 0px 30px 0px;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 40px;
+      height: 100%;
+      top: 0%;
+      right: 0%;
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        #fff 100%
+      );
+      z-index: 100;
+    }
+  }
+}
+.swiperDetails {
+  width: max-content;
+}
+//background animated
+@keyframes animate {
+  0% {
+    transform: scale(0) translateY(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3) translateY(-90px) rotate(360deg);
+    opacity: 0;
+  }
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+body {
+  margin: auto;
+}
+.swiper-wrapper {
+  margin-bottom: 45px;
+}
+.hidden-input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+//styles tippy
+.tippy-content {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 16px;
+}
+// .k-tooltip-content {
+//   height: 47px;
+// }
+#tippy-1 {
+  .tippy-content {
+    width: 241px;
+  }
+}
+.tippy-box[data-placement^="bottom"] > .tippy-arrow:before {
+  color: white;
+}
+
+#tippy-2 {
+  .tippy-content {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+.tool-tip {
+  padding: 5px 8px;
+}
+
+.activeList {
+  background-color: #032541;
+  color: #a2f7c8;
+}
+
+//pagination
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px 20px;
+  margin-top: 20px;
+  font-size: 18px;
+  color: black;
+  .selected {
+    background-color: #81cff5;
+    color: white;
+    font-weight: 700;
+    padding: 0px 9px;
+    border-radius: 100%;
+  }
+  .previous,
+  .next {
+    padding: 0px 0px;
+    cursor: pointer;
+    a {
+      font-weight: 500;
+      border-radius: 100%;
+      padding: 4px 9px;
+    }
+    &:hover {
+      background-color: #a0dbf9;
+      color: white;
+      border-radius: 100%;
+    }
+  }
+}
+.headerTranslate {
+  transform: translateY(-200%);
+  transition: 0.5s ease-in-out;
+}
+// .showHeader {
+//   transform: translateY(0px);
+//   transition: 0.5s ease-in-out;
+// }
+// fix overridden pagination
+.ant-pagination {
+  position: absolute;
+  z-index: 100;
+  width: max-content;
+}
+
+.shadow-item {
+  box-shadow: 0px 0px 26px -7px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 0px 26px -7px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 26px -7px rgba(0, 0, 0, 0.2);
+}
+.debug-css {
+  border: 1px solid red;
+}
+
+.inputItalic::placeholder {
+  font-style: italic;
+}
+.searchActive {
+  li {
+    background-color: #ebebeb;
+    font-weight: 500;
+    p {
+      visibility: visible;
+      background-color: white;
+    }
+  }
+}
+
+.loading-skeleton {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+.loading-skeleton-item {
+  background-color: #ddd;
+  margin-bottom: 10px;
+  animation: loadingSkeleton 1s ease-in-out infinite;
+}
+
+.loading-skeleton-item:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes loadingSkeleton {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
